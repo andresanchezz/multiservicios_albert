@@ -1,0 +1,17 @@
+.home-container {
+    height: calc(100vh - 4rem);
+
+    main {
+        position: relative;
+
+        h1 {
+            color: var(--white);
+            filter: drop-shadow(1px 1px 1px black);
+            position: absolute;
+            z-index: 1;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

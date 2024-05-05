@@ -1,0 +1,17 @@
+/* .page-content {
+    max-width: 1440px;
+    margin: auto;
+} */
+
+.whatsapp-contact{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    img{
+        cursor: pointer;
+        width: 5vw;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}

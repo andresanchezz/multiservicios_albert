@@ -1,0 +1,18 @@
+<app-section-layout sectionTitle="Nuestros servicios">
+
+    <div class="row w-100 justify-content-center gap-5">
+
+        @for (item of providedServices; track item.title){
+        <div class="col-sm-12 col-md-4 col-lg-3 px-2">
+            <article class="service-card w-100 d-flex flex-column align-items-center justify-content-center h-100">
+                <h3 class="text-center">{{item.title}}</h3>
+                <img class="py-3" [src]="item.logo" [alt]="item.alt">
+                <p class="text-start">{{item.descript}}</p>
+                <a href="" class="btn text-white">Saber más</a>
+            </article>
+        </div>
+        }
+
+    </div>
+
+</app-section-layout>

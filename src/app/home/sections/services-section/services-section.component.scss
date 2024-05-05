@@ -1,0 +1,16 @@
+.service-card {
+    width: 5rem;
+
+    a {
+        background: var(--primary-color-400);
+
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 2/1;
+    }
+}

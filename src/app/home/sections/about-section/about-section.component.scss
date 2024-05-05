@@ -1,0 +1,22 @@
+/* .service-feature{
+    padding: .5rem 1rem;
+    background: var(--primary-color-400);
+    border-radius: 1rem;
+    color: var(--white);
+    font-size: var(--p-mobile);
+} */
+
+.features-element{
+    padding: .5rem 1rem;
+    background: #FF9431;
+
+    p{
+        color: var(--white);
+        margin: 0;
+        font-size: var(--p-mobile);
+        &::before{
+            content: "\2713";
+            margin: 0 .5rem 0 0
+        };
+    }
+}

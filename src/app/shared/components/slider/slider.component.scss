@@ -1,0 +1,24 @@
+.carousel-item {
+    .dark-over {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.22);
+        position: absolute;
+    }
+
+    img {
+        aspect-ratio: 2.2/1;
+        object-fit: cover;
+    }
+
+    h5,
+    p {
+        color: var(--white);
+    }
+}
+
+
+.carousel-control-prev, .carousel-control-next{
+    width: 3rem;
+}
+
