@@ -1,16 +1,21 @@
-.service-card {
-    width: 5rem;
+.col-8 {
+    p {
+        font-size: var(--p-mobile);
+    }
+}
 
-    a {
-        background: var(--primary-color-400);
+h3 {
+    margin: 0 0 .5rem;
+}
 
-        &:hover {
-            opacity: .7;
-        }
+a {
+    text-decoration: none;
+    color: initial;
+    display: block;
+
+    article {
+        max-height: 8rem;
+        height: 8rem;
     }
 
-    img {
-        width: 100%;
-        aspect-ratio: 2/1;
-    }
 }

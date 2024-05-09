@@ -1,7 +1,15 @@
 section {
     padding: var(--section-p);
+    max-width: 1600px;
+    margin: auto;
 
-    h2 {
+    .top-div {
         margin: var(--h2-margin);
+
+        .h2-underline {
+            width: 8rem;
+            height: .3rem;
+            background: var(--primary-color-400);
+        }
     }
 }

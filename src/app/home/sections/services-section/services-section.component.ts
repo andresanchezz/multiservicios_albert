@@ -4,9 +4,12 @@ import { SectionLayoutComponent } from '../../layouts/section-layout/section-lay
 
 interface providedServices {
   title: string,
-  logo: string,
+  image: string,
   descript: string,
-  alt: string
+  alt: string,
+  imgFilled: string,
+  relatedImage: string,
+  isMouseOver: boolean
 }
 
 @Component({
@@ -20,48 +23,87 @@ interface providedServices {
 
 export class ServicesSectionComponent {
 
+  routeSelectedImage = '../../../../assets/images/services/battery.svg';
+  isFirstMouseOver = true
+
   providedServices: providedServices[] = [
     {
-      title: `Mantenimiento preventivo equipos de energía regulada`,
-      logo: '',
-      descript: 'lorem2 0wqdujn hbqwu iodhq wduioqw hdq wodu qwhd qwiuodjh qwodiw',
-      alt: ''
+      title: `UPS y reguladores`,
+      image: '../../../../assets/images/services/battery.svg',
+      descript: 'Un texto corto, descripción breve del servicio de máx 3 líneas',
+      alt: 'Descripción de la imagen',
+      imgFilled: '../../../../assets/images/services/battery_fill.svg',
+      relatedImage: '',
+      isMouseOver: true
     },
     {
-      title: 'UPS y Reguladores',
-      logo: '',
-      descript: 'lorem2 0wqdujnh bqwuiodhqwduio qwhdqwod qwhdqwiu odjhqwodiw',
-      alt: ''
+      title: `Cableado estructurado`,
+      image: '../../../../assets/images/services/battery.svg',
+      descript: 'Un texto corto, descripción breve del servicio de máx 3 líneas',
+      alt: 'Descripción de la imagen',
+      imgFilled: '../../../../assets/images/services/battery_fill.svg',
+      relatedImage: '',
+      isMouseOver: false
     },
     {
-      title: 'Cableado estructurado.  CCTV (circuito cerrado de televisión)',
-      logo: '',
-      descript: 'lorem20wqdujn hbqwuiodhqwdui oqwhdqwoduqwhdqw iuodjhqwodiw',
-      alt: ''
+      title: `Circuito cerrado de
+        televisión`,
+      image: '../../../../assets/images/services/battery.svg',
+      descript: 'Un texto corto, descripción breve del servicio de máx 3 líneas',
+      alt: 'Descripción de la imagen',
+      imgFilled: '../../../../assets/images/services/battery_fill.svg',
+      relatedImage: '',
+      isMouseOver: false
     },
     {
-      title: 'Redes de baja tensión.',
-      logo: '',
-      descript: 'lorem20w qdujnhb qwuiodhqwduioq whdqwoduqwhdq wiuodjhqwodiw',
-      alt: ''
-    },
-    {
-      title: 'Mantenimiento y reformas locativas',
-      logo: '',
-      descript: 'lorem20wqd ujnhbqw uiodhqwduioqwh dqwoduqwhdqw iuodj hqwodiw',
-      alt: ''
-    },
-    {
-      title: 'Mantenimiento y formateo de computadoras',
-      logo: '',
-      descript: 'lorem20wqdujnhbq wuiodhqwduioq whdqwoduq whdqwiuodj hqwodiw',
-      alt: ''
-    },
-    {
-      title: 'Desarrollo web',
-      logo: '',
-      descript: 'lorem2 0wqd ujnhbqwuio hqwduioqwh dqwoduqwhdq wiuodjhqwodiw',
-      alt: ''
+      title: `Software y Hardware`,
+      image: '../../../../assets/images/services/battery.svg',
+      descript: 'Todo lo relacionado con computadoras y sitios web',
+      alt: 'Descripción de la imagen',
+      imgFilled: '../../../../assets/images/services/battery_fill.svg',
+      relatedImage: '',
+      isMouseOver: false
     },
   ]
+
+  providedServicesMap: Map<string, providedServices> = new Map();
+
+  constructor() {
+    this.providedServices.forEach(element => {
+      this.providedServicesMap.set(element.title, element);
+    });
+
+  }
+
+  getFromStart(): providedServices[] {
+    const halfOfArray = Math.ceil(this.providedServicesMap.size / 2);
+    const servicesArray = Array.from(this.providedServicesMap.values());
+    return servicesArray.slice(0, halfOfArray);
+  }
+
+  getFromMiddle(): providedServices[] {
+    const halfOfArray = Math.ceil(this.providedServicesMap.size / 2);
+    const servicesArray = Array.from(this.providedServicesMap.values());
+    return servicesArray.slice(halfOfArray);
+  }
+
+  colorImage(service: providedServices): void {
+    service.isMouseOver = true
+    this.routeSelectedImage = service.image;
+
+    if (this.isFirstMouseOver) {
+      const firstItem = this.providedServicesMap.get('UPS y reguladores');
+      if (firstItem && service.title != firstItem.title) {
+        firstItem.isMouseOver = false
+      }
+      this.isFirstMouseOver = false
+    }
+
+  }
+
+  removeColorImage(service: providedServices): void {
+    service.isMouseOver = false
+  }
+
+
 }
